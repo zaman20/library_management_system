@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2024 at 07:49 PM
+-- Generation Time: Feb 12, 2024 at 05:49 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -61,7 +61,6 @@ CREATE TABLE `lms_author` (
 INSERT INTO `lms_author` (`author_id`, `author_name`, `author_status`, `author_created_on`, `author_updated_on`) VALUES
 (1, 'E. Balagurusamy', 'Enable', '2024-02-10 17:20:55', ''),
 (25, 'B. Holdsworth', 'Enable', '2024-02-10 17:22:25', '2024-02-10 17:22:35'),
-(27, 'Thomas H. Cormen', 'Enable', '2024-02-10 17:37:59', ''),
 (28, 'Ramez Elmasri', 'Enable', '2024-02-10 20:50:28', ''),
 (29, 'Bjarne Stroustrup', 'Enable', '2024-02-10 20:52:36', ''),
 (30, 'Ian Sommerville', 'Enable', '2024-02-10 20:57:07', ''),
@@ -91,9 +90,8 @@ CREATE TABLE `lms_book` (
 --
 
 INSERT INTO `lms_book` (`book_id`, `book_category`, `book_author`, `book_location_rack`, `book_name`, `book_isbn_number`, `book_no_of_copy`, `book_status`, `book_added_on`, `book_updated_on`) VALUES
-(21, 'Database Managementt', 'Ramez Elmasri', 'R3', 'Fundamental of Database System', '123456', 4, 'Enable', '2024-02-10 20:51:27', ''),
-(22, 'Programming', 'Bjarne Stroustrup', 'R1', 'The C++ Programming Language', '1234567', 7, 'Enable', '2024-02-10 20:53:27', ''),
-(23, 'Software Engineering', 'Ian Sommerville', 'R4', 'Software Enginnering', '12345678', 5, 'Enable', '2024-02-10 20:57:49', ''),
+(22, 'Programming', 'Bjarne Stroustrup', 'R1', 'The C++ Programming Language', '1234567', 2, 'Enable', '2024-02-10 20:53:27', '2024-02-12 22:49:17'),
+(23, 'Software Engineering', 'Ian Sommerville', 'R4', 'Software Enginnering', '12345678', 0, 'Enable', '2024-02-10 20:57:49', '2024-02-12 22:29:46'),
 (24, 'web design', 'Gennifer Niederst', 'R6', 'Learning Web Design', '123456789', 1, 'Disable', '2024-02-10 21:00:29', '2024-02-11 20:05:54');
 
 -- --------------------------------------------------------
@@ -115,8 +113,7 @@ CREATE TABLE `lms_category` (
 --
 
 INSERT INTO `lms_category` (`category_id`, `category_name`, `category_status`, `category_created_on`, `category_updated_on`) VALUES
-(8, 'Algorithm', 'Enable', '2024-02-10 17:32:30', '2024-02-11 22:15:21'),
-(9, 'Database', 'Enable', '2024-02-10 17:32:37', '2024-02-10 20:54:08');
+(8, 'Algorithm', 'Enable', '2024-02-10 17:32:30', '2024-02-11 22:15:21');
 
 -- --------------------------------------------------------
 
@@ -152,7 +149,10 @@ INSERT INTO `lms_issue_book` (`issue_book_id`, `book_id`, `user_id`, `issue_date
 (13, '123456789', 'U37570190', '2024-02-10 17:07:50', '2024-02-20 17:07:50', '2024-02-10 17:08:08', '0', 'Return'),
 (14, '123456789', 'U97813761', '2024-02-10 21:28:05', '2024-02-20 21:28:05', '', '0', 'Issue'),
 (15, '123456789', 'U46809095', '2024-02-10 21:28:52', '2024-02-20 21:28:52', '2024-02-10 21:33:19', '0', 'Return'),
-(16, '1234', 'U97813761', '2024-02-11 20:11:07', '2024-02-21 20:11:07', '', '0', 'Issue');
+(16, '1234', 'U97813761', '2024-02-11 20:11:07', '2024-02-21 20:11:07', '', '0', 'Issue'),
+(24, '1234567', 'U20806225', '2024-02-12 22:44:12', '2024-02-12 20:34:00', '', '0', 'Not Return'),
+(25, '1234567', 'U20806225', '2024-02-12 22:46:33', '2024-02-22 22:46:33', '', '0', 'Issue'),
+(26, '1234567', 'U20806225', '2024-02-12 22:49:17', '2024-02-19 22:49:17', '', '0', 'Issue');
 
 -- --------------------------------------------------------
 
@@ -177,8 +177,7 @@ INSERT INTO `lms_location_rack` (`location_rack_id`, `location_rack_name`, `loca
 (15, 'R2', 'Enable', '2024-02-10 17:26:34', ''),
 (16, 'R3', 'Enable', '2024-02-10 17:26:40', ''),
 (17, 'R4', 'Enable', '2024-02-10 17:26:50', ''),
-(18, 'R5', 'Enable', '2024-02-10 17:26:55', ''),
-(19, 'R6', 'Enable', '2024-02-10 17:27:01', '');
+(18, 'R5', 'Enable', '2024-02-10 17:26:55', '');
 
 -- --------------------------------------------------------
 
@@ -204,7 +203,7 @@ CREATE TABLE `lms_setting` (
 --
 
 INSERT INTO `lms_setting` (`setting_id`, `library_name`, `library_address`, `library_contact_number`, `library_email_address`, `library_total_book_issue_day`, `library_one_day_fine`, `library_issue_total_book_per_user`, `library_currency`, `library_timezone`) VALUES
-(1, 'ABC Library', 'Basherhut, Dinajpur', '7539518521', 'abc_library@gmail.com', 10, 5.00, 3, 'BDT', 'Asia/Dhaka');
+(1, 'ABC Library', 'Basherhut, Dinajpur', '7539518521', 'abc_library@gmail.com', 7, 5.00, 3, 'BDT', 'Asia/Dhaka');
 
 -- --------------------------------------------------------
 
@@ -234,7 +233,7 @@ CREATE TABLE `lms_user` (
 
 INSERT INTO `lms_user` (`user_id`, `user_name`, `user_address`, `user_contact_no`, `user_profile`, `user_email_address`, `user_password`, `user_verificaton_code`, `user_verification_status`, `user_unique_id`, `user_status`, `user_created_on`, `user_updated_on`) VALUES
 (12, 'mizan1', 'gf,df,gsa', '018910239488', '1707580334-986918746.jpg', 'mizan1@gmail.com', '1234', '6945a3cb896b8150fb879e3dcb389ffe', 'No', 'U46809095', 'Enable', '2024-02-10 21:22:14', '2024-02-10 21:33:05'),
-(13, 'zaman', 'basherhut', '89999999999999', '1707666104-2038293745.png', 'zaman@gmail.com', '1234', 'efa5789e93a7c816fcd23bebc2ee8873', 'No', 'U20806225', 'Disable', '2024-02-11 21:41:44', '2024-02-12 00:11:00');
+(13, 'zaman', 'basherhut', '89999999999999', '1707666104-2038293745.png', 'zaman@gmail.com', '1234', 'efa5789e93a7c816fcd23bebc2ee8873', 'No', 'U20806225', 'Enable', '2024-02-11 21:41:44', '2024-02-12 22:03:02');
 
 --
 -- Indexes for dumped tables
@@ -320,7 +319,7 @@ ALTER TABLE `lms_category`
 -- AUTO_INCREMENT for table `lms_issue_book`
 --
 ALTER TABLE `lms_issue_book`
-  MODIFY `issue_book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `issue_book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `lms_location_rack`

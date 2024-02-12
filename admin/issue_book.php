@@ -85,7 +85,7 @@ if(isset($_POST["issue_book_button"]))
                                     $today_date = get_date_time($connect);
 
                                     $expected_return_date = date('Y-m-d H:i:s', strtotime($today_date. ' + '.$total_book_issue_day.' days'));
-
+                                    
                                     $data = array(
                                         ':book_id'      =>  $formdata['book_id'],
                                         ':user_id'      =>  $formdata['user_id'],
@@ -631,7 +631,7 @@ include '../header.php';
         					<td>'.$row["book_id"].'</td>
         					<td>'.$row["user_id"].'</td>
         					<td>'.$row["issue_date_time"].'</td>
-        					<td>'.$row["return_date_time"].'</td>
+        					<td>'.$row["expected_return_date"].'</td>
         					<td>'.$currency_symbol.$book_fines.'</td>
         					<td>'.$status.'</td>
         					<td>
